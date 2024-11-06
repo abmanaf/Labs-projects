@@ -38,15 +38,15 @@ function renderTodos() {
       todoItem.innerHTML = `
           <div class='items-in-todo'>
             <div>
-              <strong>${todo.title}</strong> 
+              <strong style='text-align: center'>${todo.title}</strong> 
               <p>${todo.description}</p>
             </div> 
             <div class='action-duedate'>
               <small>${todo.dueDate.toLocaleString()}</small>
               <div class='action-bottom'>
                 <button onclick="toggleComplete(${todo.id})">${
-        todo.completed ? "Unmark" : "Complete"
-      }</button>
+                  todo.completed ? "Unmark" : "Complete"
+                }</button>
                 <button style='border: none; color: #007bff' onclick="editTodo(${
                   todo.id
                 })"> <i class="fa-solid fa-edit" aria-hidden="true"></i>
