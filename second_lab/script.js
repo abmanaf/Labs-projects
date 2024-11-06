@@ -88,13 +88,14 @@ function clearForm() {
 function deleteTodo(id, silent) {
   const findToDelete = todos.find((t) => t.id === id);
   const confirmDelete = !silent&&confirm(`Are you sure you want to delete ${findToDelete.title} from the list`)
- if(silent||confirmDelete){
-  todos = todos.filter((todo) => todo.id !== id);
-  renderTodos();
-}
+  //alert(confirmDelete+' '+silent)
+  if(silent||confirmDelete){
+    todos = todos.filter((todo) => todo.id !== id);
+    renderTodos();
+  }
   
-todos = todos.filter((todo) => todo.id !== id);
-renderTodos();
+  // todos = todos.filter((todo) => todo.id !== id);
+  // renderTodos();
 }
 
 function editTodo(id) {
