@@ -85,14 +85,14 @@ function clearForm() {
   document.getElementById("dueDate").value = "";
 }
 
-function deleteTodo(id) {
- // const findToDelete = todos.find((t) => t.id === id);
-  //const confirmDelete = confirm(`Are you sure you want to delete ${findToDelete.title} from the list`)
- /* if(confirmDelete){
+function deleteTodo(id, silent) {
+  const findToDelete = todos.find((t) => t.id === id);
+  const confirmDelete = !silent&&confirm(`Are you sure you want to delete ${findToDelete.title} from the list`)
+ if(silent||confirmDelete){
   todos = todos.filter((todo) => todo.id !== id);
   renderTodos();
 }
-  */
+  
 todos = todos.filter((todo) => todo.id !== id);
 renderTodos();
 }
@@ -104,7 +104,7 @@ function editTodo(id) {
   document.getElementById("dueDate").value = todo.dueDate
     .toISOString()
     .slice(0, -1);
-  deleteTodo(id);
+  deleteTodo(id,true);
 }
 
 function toggleComplete(id) {
