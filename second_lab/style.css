@@ -97,6 +97,7 @@ button {
   .main-todo-container {
     width: 100%;
     flex-direction: column;
+    gap: 2em;
   }
   form {
     position: static;
@@ -124,6 +125,7 @@ button {
   .main-todo-container {
     width: 100%;
     flex-direction: column;
+    gap: 2em;
   }
   form {
     position: static;
