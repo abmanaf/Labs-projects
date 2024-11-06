@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Interactive To-Do List</title>
+  </head>
+  <body>
+    <div class="main-todo-container">
+      <div class="forms-container">
+        <form onsubmit="addTodo(event)">
+          <h2>To-Do List</h2>
+          <label for="title">Title</label> <br />
+          <input type="text" id="title" placeholder="Title" required /> <br />
+          <label for="title">Description</label> <br />
+          <textarea name="" id="description"></textarea>
+          <br />
+          <label for="title">Time/Date</label> <br />
+          <input type="datetime-local" id="dueDate" required /> <br />
+          <div style="margin-top: 5px">
+            <button
+              style="
+                background-color: rgb(76, 175, 76);
+                border: none;
+                color: white;
+              "
+              type="submit"
+            >
+              Add To-Do
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="items-container">
+        <button onclick="sortTodos()" class="sort-button">
+          Sort by Due Date
+        </button>
+        <div id="todoList">No tasks available</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
