@@ -13,7 +13,7 @@
   <body>
     <div class="main-todo-container">
       <div class="forms-container">
-        <form onsubmit="addTodo(event)">
+        <form onsubmit="addOrEditTodo(event)">
           <h2>To-Do List</h2>
           <label for="title">Title</label> <br />
           <input type="text" id="title" placeholder="Title" required /> <br />
@@ -22,9 +22,9 @@
           <br />
           <label for="title">Time/Date</label> <br />
           <input type="datetime-local" id="dueDate" required /> <br />
-          <div style="margin-top: 5px">
+          <div class="addtodo-container" style="margin-top: 5px">
             <button
-              style="background-color: rgb(76, 175, 76); border: none; color: white;"
+              style="border: none; color: white"
               type="submit"
               id="submitButton"
             >
@@ -33,15 +33,39 @@
           </div>
         </form>
       </div>
+
       <div class="items-container">
-        <select class="sort-button" name="select" id="sort-select" onchange="sortTodos()">
-          <option value="1">Select</option>
-          <option value="2">Sort by Due Date</option>
-        </select>
+        <div class="sort-container">
+          <button
+            class="sort-button"
+            style="
+              padding: 10px;
+              background-color: #007bff;
+              cursor: pointer;
+              border-radius: 7px;
+              color: white;
+            "
+            onclick="sortTodos()"
+          >
+            <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+
+            Sort by Due Date
+          </button>
+        </div>
         <div class="todo-item-container">
-        <div id="todoList" style="display: flex;flex-direction: column; justify-content: center;align-items: center;">No tasks available</div>
+          <div
+            id="todoList"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            No List available
+          </div>
+        </div>
       </div>
-    </div>
     </div>
     <script src="script.js"></script>
   </body>
