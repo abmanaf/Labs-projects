@@ -30,25 +30,18 @@
             >
               Add To-Do List
             </button>
-          <div class="add-to-do" style="margin-top: 5px">
-            <button type="submit" id="submitButton">Add To-Do</button>
           </div>
         </form>
       </div>
       <div class="items-container">
-        <select
-          class="sort-button"
-          name="select"
-          id="sort-select"
-          onchange="sortTodos()"
-        >
+        <select class="sort-button" name="select" id="sort-select" onchange="sortTodos()">
           <option value="1">Select</option>
           <option value="2">Sort by Due Date</option>
         </select>
         <div class="todo-item-container">
-          <div id="todoList">No tasks available</div>
-        </div>
+        <div id="todoList" style="display: flex;flex-direction: column; justify-content: center;align-items: center;">No tasks available</div>
       </div>
+    </div>
     </div>
     <script src="script.js"></script>
   </body>
