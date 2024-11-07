@@ -68,7 +68,7 @@ input {
 }
 textarea {
   width: 100%;
-  height: 100px;
+  height: 150px;
   border-radius: 5px;
   border: 1.5px solid black;
   margin-bottom: 10px;
@@ -106,10 +106,10 @@ button {
 }
 
 .completed {
-  text-decoration: line-through;
-  color: gray;
+  text-decoration:solid;
+  color: rgb(173, 172, 172);
 }
-@media only screen and (max-width: 670px) {
+@media only screen and (max-width: 767px) {
   .main-todo-container {
     width: 100%;
     flex-direction: column;
@@ -126,18 +126,16 @@ button {
   .items-container {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     min-height: 400px;
     overflow-y: auto;
-    background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 }
 
-@media only screen and (min-width: 671px) and (max-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .main-todo-container {
     width: 100%;
     flex-direction: column;
