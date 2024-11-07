@@ -11,7 +11,8 @@ body {
 .main-todo-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 2em;
 }
 
 .forms-container {
@@ -22,28 +23,38 @@ form {
   width: 30%;
 }
 .items-container {
-  width: 65%; 
+  width: 65%;
+  /*
   display: flex;
   flex-direction: column;
+  */
 }
-.todo-item-container{
+.todo-item-container {
   border: 1px solid #ddd;
   border-radius: 5px;
   min-height: 400px;
   overflow-y: auto;
-  background-color: #f9f9f9;  
+  background-color: #f9f9f9;
   height: 100%;
   padding: 10px;
+}
+.sort-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .sort-button {
   align-self: flex-end;
   margin-top: 10px;
-  padding: 10px;
   display: none;
   margin-bottom: 5px;
 }
-.title_actions{
+
+.sort-container button {
+  padding: 10px;
+}
+.title_actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,14 +85,31 @@ textarea {
   margin-bottom: 10px;
   padding: 10px;
 }
+.addtodo-container button {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(76, 175, 76);
+  border: none;
+  color: white;
+  transition: 0.5s ease;
+}
+
+.addtodo-container button:hover {
+  background-color: green;
+  transform: scale(1.05);
+}
+
+/*
 button {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
 }
-
-.items-container button{
+*/
+.items-container button {
   padding: 3px;
   border: none;
   font-size: 12px;
@@ -90,6 +118,14 @@ button {
   padding: 5px;
   border-radius: 3px;
   cursor: pointer;
+  background-color: rgb(76, 175, 76);
+  color: white;
+  border: none;
+  transition: background-color 0.5s ease, transform 0.3s ease;
+}
+.action-bottom button:hover {
+  background-color: green;
+  transform: scale(1.05);
 }
 .items-in-todo {
   flex-direction: column;
@@ -106,7 +142,7 @@ button {
 }
 
 .completed {
-  text-decoration:solid;
+  text-decoration: solid;
   color: rgb(173, 172, 172);
 }
 @media only screen and (max-width: 767px) {
