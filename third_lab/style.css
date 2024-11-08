@@ -1,17 +1,20 @@
 body {
   background-color: #ecf0f1;
+  display: flex;
 }
 .gallery-container {
   display: flex;
+  justify-content: center;
+  gap: 0.5em;
   flex-wrap: wrap;
   background-color: #fff;
-  width: 94%;
+  width: 50%;
   padding: 10px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  margin: 4em auto;
 }
 .gallery-item {
-  flex-basis: 32.7%;
+  width: 24%;
   margin-bottom: 6px;
   opacity: 0.85;
   cursor: pointer;
@@ -49,7 +52,7 @@ body {
 .lightbox-prev,
 .lightbox-next {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(175, 161, 161, 0.8);
   color: #fff;
   padding: 9px;
   top: 45%;
@@ -60,6 +63,12 @@ body {
 }
 .lightbox-next {
   right: 0;
+}
+.lightbox-caption {
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 10px;
 }
 @media only screen and (width: 767px) {
   .gallery-container {
