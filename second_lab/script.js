@@ -6,11 +6,12 @@ function addOrEditTodo(event) {
   const title = document.getElementById("title").value.trim();
   const description = document.getElementById("description").value.trim();
   const dueDate = document.getElementById("dueDate").value;
-
+/*
   if (!title || !dueDate) {
     alert("Please fill out both the title and due date fields.");
     return;
   }
+    */
 
   if (editingId !== null) {
     const todo = todos.find((todo) => todo.id === editingId);
@@ -103,7 +104,6 @@ function renderTodos() {
     });
   }
 
-  // Update button text based on edit mode
   document.getElementById("submitButton").textContent = editingId
     ? "Save Changes"
     : "Add To-Do List";
