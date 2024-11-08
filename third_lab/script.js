@@ -32,6 +32,10 @@ const images = [
   { src: "../images/image_8.jpeg", caption: "Image 8" },
   { src: "../images/image_9.jpeg", caption: "Image 9" },
 ];
+const lightBoxCaption = document.createElement("div");
+lightBoxCaption.classList.add("lightbox-caption");
+
+lightBoxContent.appendChild(lightBoxCaption);
 
 function showLightbox(n) {
   if (n >= images.length) {
@@ -44,6 +48,7 @@ function showLightbox(n) {
 
   lightBoxImage.setAttribute("src", images[index].src);
   lightBoxImage.setAttribute("alt", images[index].caption);
+  lightBoxCaption.textContent = images[index].caption;
   lightBoxContent.setAttribute("aria-label", images[index].caption);
 }
 
@@ -81,5 +86,5 @@ for (let i = 0; i < item_gallery.length; i++) {
   item_gallery[i].addEventListener("click", currentImage);
 }
 
-// Automatically close lightbox if the user clicks outside the content
+// This automatically close lightbox if the user clicks outside the content
 lightBoxContainer.addEventListener("click", closeLightBox);
