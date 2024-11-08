@@ -1,31 +1,24 @@
 //3.Object Transformations:
 
 //A. fullName(person) Returns the full name of a person object (givenproperties firstName and lastName)
-function fullName(person) {
-  return (
-    person.firstName.charAt(0).toUpperCase() +
-    person.firstName.slice(1) +
-    " " +
-    person.lastName
-  );
+const fullName = person => {
+  return `${person.firstName.charAt(0).toUpperCase() + person.firstName.slice(1) + person.lastName}` 
 }
 const person = {
   firstName: "aliu",
   lastName: "Abdul Manaf",
 };
 console.log(fullName(person));
+//Output: Aliu Abdul manaf
 
 //B. isAdult(person) Checks if a person is 18 or older (given property age
-function isAdult(age) {
-  if (age >= 18) {
-    return "The person is an adult";
-  } else {
-    return "The person is not an adult";
-  }
+const isAdult = person => {
+  return person.age ?  'The person is an adult': 'The person is not an adult';
 }
-const personAge = 72;
+const personAge = {age: 72};
 const checkAge = isAdult(personAge);
 console.log(checkAge);
+// Output: The person is an adult
 
 //C. filterByAge(people, minAge) Filters an array of person objects to keep only those at least minAge years old.
 function filterByAge(people, minAge) {
