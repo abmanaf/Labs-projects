@@ -22,15 +22,15 @@ document.body.appendChild(lightBoxContainer);
 
 let index = 0;
 const images = [
-  { src: "../images/football-trainer-teaching-his-pupils_23-2149707974.avif", caption: "Image 1" },
-  { src: "../images/engineer-cooperation-male-female-technician-maintenance-control-relay-robot-arm-system-welding-with-tablet-laptop-control-quality-operate-process-work-heavy-industry-40-manufacturing-fa.avif", caption: "Image 2" },
-  { src: "../images/full-length-woman-exercising-field_1048944-30351094.avif", caption: "Image 3" },
-  { src: "../images/mom-spending-time-with-kid-beach_23-2150924978.avif", caption: "Image 4" },
-  { src: "../images/mom-spending-time-with-kid-beach_23-2150924982.avif", caption: "Image 5" },
-  { src: "../images/mom-spending-time-with-kid-beach_23-2150924983.avif", caption: "Image 6" },
-  { src: "../images/portrait-shirtless-man-standing-beach_1048944-30315343.avif", caption: "Image 7" },
-  { src: "../images/water-polo-player-pool-with-swimming-equipment_23-2150893950.avif", caption: "Image 8" },
-  { src: "../images/medium-shot-women-with-delicious-food_23-2150168102.avif", caption: "Image 9" },
+  { src: "./images/football-trainer-teaching-his-pupils_23-2149707974.avif", caption: "Image 1" },
+  { src: "./images/engineer-cooperation-male-female-technician-maintenance-control-relay-robot-arm-system-welding-with-tablet-laptop-control-quality-operate-process-work-heavy-industry-40-manufacturing-fa.avif", caption: "Image 2" },
+  { src: "./images/full-length-woman-exercising-field_1048944-30351094.avif", caption: "Image 3" },
+  { src: "./images/mom-spending-time-with-kid-beach_23-2150924978.avif", caption: "Image 4" },
+  { src: "./images/mom-spending-time-with-kid-beach_23-2150924982.avif", caption: "Image 5" },
+  { src: "./images/mom-spending-time-with-kid-beach_23-2150924983.avif", caption: "Image 6" },
+  { src: "./images/portrait-shirtless-man-standing-beach_1048944-30315343.avif", caption: "Image 7" },
+  { src: "./images/water-polo-player-pool-with-swimming-equipment_23-2150893950.avif", caption: "Image 8" },
+  { src: "./images/medium-shot-women-with-delicious-food_23-2150168102.avif", caption: "Image 9" },
 ];
 const lightBoxCaption = document.createElement("div");
 lightBoxCaption.classList.add("lightbox-caption");
