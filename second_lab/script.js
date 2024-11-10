@@ -6,11 +6,12 @@ function addOrEditTodo(event) {
   const title = document.getElementById("title").value.trim();
   const description = document.getElementById("description").value.trim();
   const dueDate = document.getElementById("dueDate").value;
-
+  /*
   if (!title || !dueDate) {
     alert("Please fill out both the title and due date fields.");
     return;
   }
+    */
 
   if (editingId !== null) {
     const todo = todos.find((todo) => todo.id === editingId);
@@ -50,6 +51,7 @@ function editTodo(id) {
 }
 
 function renderTodos() {
+  const itemContainer = document.getElementById("items-container");
   const todoList = document.getElementById("todoList");
   const sortButton = document.querySelector(".sort-button");
   todoList.innerHTML = "";
@@ -59,6 +61,7 @@ function renderTodos() {
     sortButton.style.display = "none";
   } else {
     sortButton.style.display = "block";
+    itemContainer.style.display = "block";
     todos.forEach((todo) => {
       const todoItem = document.createElement("div");
       todoItem.className = "todo-item";
@@ -103,7 +106,6 @@ function renderTodos() {
     });
   }
 
-  // Update button text based on edit mode
   document.getElementById("submitButton").textContent = editingId
     ? "Save Changes"
     : "Add To-Do List";
