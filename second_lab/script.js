@@ -7,6 +7,7 @@ function addOrEditTodo(event) {
   const description = document.getElementById("description").value.trim();
   const dueDate = document.getElementById("dueDate").value;
   /*
+  /*
   if (!title || !dueDate) {
     alert("Please fill out both the title and due date fields.");
     return;
