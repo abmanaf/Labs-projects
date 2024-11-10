@@ -24,15 +24,12 @@ form {
 }
 .items-container {
   width: 65%;
-  /*
-  display: flex;
-  flex-direction: column;
-  */
+  display: none;
+  height: auto;
 }
 .todo-item-container {
   border: 1px solid #ddd;
   border-radius: 5px;
-  min-height: 400px;
   overflow-y: auto;
   background-color: #f9f9f9;
   height: 100%;
