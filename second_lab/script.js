@@ -58,8 +58,9 @@ function renderTodos() {
   todoList.innerHTML = "";
 
   if (todos.length === 0) {
-    todoList.innerHTML = "<p>No List available</p>";
+    //todoList.innerHTML = "<p>No List available</p>";
     sortButton.style.display = "none";
+    itemContainer.style.display = "none";
   } else {
     sortButton.style.display = "block";
     itemContainer.style.display = "block";
@@ -69,7 +70,7 @@ function renderTodos() {
       if (todo.completed) todoItem.classList.add("completed");
 
       todoItem.innerHTML = `
-          <div class='items-in-todo'>
+          <div>
             <div>
               <div class='title_actions'>
                 <strong style='font-family: "Lucida Console", "Courier New", monospace; font-size: 20px;'>${
