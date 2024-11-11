@@ -6,14 +6,6 @@ function addOrEditTodo(event) {
   const title = document.getElementById("title").value.trim();
   const description = document.getElementById("description").value.trim();
   const dueDate = document.getElementById("dueDate").value;
-  /*
-  /*
-  if (!title || !dueDate) {
-    alert("Please fill out both the title and due date fields.");
-    return;
-  }
-    */
-
   if (editingId !== null) {
     const todo = todos.find((todo) => todo.id === editingId);
     todo.title = title;
@@ -30,7 +22,6 @@ function addOrEditTodo(event) {
     };
     todos.push(todo);
   }
-
   renderTodos();
   clearForm();
 }
@@ -58,7 +49,6 @@ function renderTodos() {
   todoList.innerHTML = "";
 
   if (todos.length === 0) {
-    //todoList.innerHTML = "<p>No List available</p>";
     sortButton.style.display = "none";
     itemContainer.style.display = "none";
   } else {

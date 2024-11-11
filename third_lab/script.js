@@ -2,21 +2,19 @@ const item_gallery = document.getElementsByClassName("gallery-item");
 const lightBoxContainer = document.createElement("div");
 const lightBoxContent = document.createElement("div");
 const lightBoxImage = document.createElement("img");
-const lightBoxPrev = document.createElement("div");
-const lightBoxNext = document.createElement("div");
-//const lightBoxClose = document.createElement("div");
-
+const lightBoxPrev = document.createElement("button");
+const lightBoxNext = document.createElement("button");
+lightBoxPrev.style.border = 'none';
+lightBoxNext.style.border = 'none';
 lightBoxContainer.classList.add("lightbox");
 lightBoxContent.classList.add("lightbox-content");
 lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
 lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
-//lightBoxClose.classList.add("fa", "fa-times", "lightbox-close");
 
 lightBoxContainer.appendChild(lightBoxContent);
 lightBoxContent.appendChild(lightBoxImage);
 lightBoxContent.appendChild(lightBoxPrev);
 lightBoxContent.appendChild(lightBoxNext);
-//lightBoxContent.appendChild(lightBoxClose);
 
 document.body.appendChild(lightBoxContainer);
 
@@ -107,8 +105,6 @@ function closeLightBox(event) {
 
 lightBoxPrev.addEventListener("click", prevImage);
 lightBoxNext.addEventListener("click", nextImage);
-// /lightBoxClose.addEventListener("click", closeLightBox);
-
 for (let i = 0; i < item_gallery.length; i++) {
   item_gallery[i].addEventListener("click", currentImage);
 }
