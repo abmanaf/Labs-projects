@@ -9,13 +9,11 @@ body {
   display: flex;
   justify-content: center;
 }
-
 .main-todo-container {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 .forms-container {
   width: 40%;
 }
@@ -43,26 +41,17 @@ form {
 .todo-item:hover {
   transform: scale(1.01);
 }
-
-/*
-.todo-item:not(:last-child) {
-  border-bottom: 1px solid red;
-}
-  */
 .sort-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 5px;
 }
-
-.sort-button {
-  align-self: flex-end;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.sort-container button {
+.sort-container .sort-button {
   padding: 10px;
+  background-color: #007bff;
+  cursor: pointer;
+  border-radius: 7px;
+  color: white;
 }
 .title_actions {
   display: flex;
@@ -72,8 +61,7 @@ form {
 h2 {
   text-align: center;
 }
-
-input {
+.text-input,.date-input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -98,20 +86,10 @@ textarea {
   color: white;
   transition: 0.5s ease;
 }
-
 .addtodo-container button:hover {
   background-color: green;
   transform: scale(1.05);
 }
-
-/*
-button {
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-*/
 .items-container button {
   padding: 3px;
   border: none;
@@ -130,13 +108,11 @@ button {
   background-color: green;
   transform: scale(1.05);
 }
-
 .action-duedate {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .completed {
   text-decoration: solid;
   color: rgb(173, 172, 172);
@@ -151,7 +127,6 @@ button {
     position: static;
     width: 100%;
   }
-
   .forms-container {
     width: 100%;
   }
@@ -166,7 +141,6 @@ button {
     height: 100%;
   }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .main-todo-container {
     width: 100%;
@@ -177,7 +151,6 @@ button {
     position: static;
     width: 100%;
   }
-
   .forms-container {
     width: 100%;
   }
