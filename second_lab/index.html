@@ -15,16 +15,14 @@
       <div class="forms-container">
         <form onsubmit="addOrEditTodo(event)">
           <h2>To-Do List</h2>
-          <label for="title">Title</label> <br />
-          <input type="text" id="title" required /> <br />
-          <label for="title">Description</label> <br />
+          <label for="title">Title</label>
+          <input class="text-input" type="text" id="title" required />
+          <label for="title">Description</label>
           <textarea name="" id="description"></textarea>
-          <br />
-          <label for="title">Time/Date</label> <br />
-          <input type="datetime-local" id="dueDate" required /> <br />
+          <label for="title">Time/Date</label>
+          <input class="date-input" type="datetime-local" id="dueDate" required />
           <div class="addtodo-container" style="margin-top: 5px">
             <button
-              style="border: none; color: white"
               type="submit"
               id="submitButton"
             >
@@ -38,17 +36,9 @@
         <div class="sort-container">
           <button
             class="sort-button"
-            style="
-              padding: 10px;
-              background-color: #007bff;
-              cursor: pointer;
-              border-radius: 7px;
-              color: white;
-            "
             onclick="sortTodos()"
           >
             <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-
             Sort by Due Date
           </button>
         </div>
