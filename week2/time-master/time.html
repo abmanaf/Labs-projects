@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time master</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    #display-clock{
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    button{
+        cursor: pointer;
+        padding: 5px 5px;
+    }
+</style>
+<body>
+    <div id="display-clock"></div>
+    <button id="toggle-button">Toggle 12/24 Hour</button>
+</body>
+<script src="time.js"></script>
+</html>
