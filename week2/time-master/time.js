@@ -100,8 +100,8 @@ toggleColor.addEventListener("click", () => {
 
 setAlarmButton.addEventListener("click", () => {
   const inputDateTime = dateTimeInput.value;
-  const appropriateTime = new Date(alarmTime) > dateTimeInput.value
-  if (inputDateTime && appropriateTime) {
+  const appropriateTime = new Date(inputDateTime)
+  if (appropriateTime > new Date()) {
     alarmTime = inputDateTime;
     alarmSet = true;
     alert("Alarm set for: " + new Date(alarmTime));
