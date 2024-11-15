@@ -18,7 +18,7 @@ function Superhero(name, secretIdentity, powers, weakness) {
     this.weakness = weakness;
 }
 
-Superhero.prototype.describe = function() {
+Superhero.prototype.description = function() {
     console.log(`${this.name}, also known as ${this.secretIdentity}, has the following powers: ${this.powers.join(', ')}`);
 };
 
