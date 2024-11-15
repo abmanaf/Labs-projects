@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time master</title>
-</head>
-<style>
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Master</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
-    #display-clock{
-        font-size: 50px;
-        margin-bottom: 10px;
+    #display-clock {
+      font-size: 50px;
+      margin-bottom: 10px;
     }
-    button{
-        cursor: pointer;
-        padding: 5px 5px;
+    button {
+      cursor: pointer;
+      padding: 5px 5px;
     }
-</style>
-<body>
-    <div id="display-clock"></div>
-    <button id="toggle-button">Toggle 12/24 Hour</button>
-</body>
-<script src="time.js"></script>
+    .time-container {
+      width: 40%;
+      height: 30vh;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      position: relative;
+    }
+    .inner-timer-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    select {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px;
+    }
+    .set-alarm-input {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    input[type="datetime-local"] {
+      padding: 10px;
+      border-radius: 7px;
+      border: 1px solid rgb(56, 54, 54);
+    }
+  </style>
+  <body>
+    <div class="set-alarm-input">
+      <label for="">Set alarm:</label>
+      <input type="datetime-local" name="" id="datetime-local" />
+      <button id="set-alarm-button">Set Alarm</button>
+    </div>
+    <div class="time-container">
+      <select id="time-zone">
+        <option value="local">Local Time</option>
+        <option value="UTC">UTC</option>
+        <option value="America/New_York">New York (EST)</option>
+        <option value="Europe/London">London (GMT)</option>
+        <option value="Asia/Tokyo">Tokyo (JST)</option>
+      </select>
+      <div class="inner-timer-container">
+        <div id="display-clock"></div>
+        <button id="toggle-button">Toggle 12/24 Hour</button>
+      </div>
+    </div>
+  </body>
+  <script src="time.js"></script>
 </html>
