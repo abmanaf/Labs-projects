@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  #display-clock {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  button {
+    cursor: pointer;
+    padding: 5px 5px;
+  }
+  .time-container {
+    width: 40%;
+    height: 40vh;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+  }
+  .inner-timer-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+  .set-alarm-input {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  input[type="datetime-local"] {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid rgb(56, 54, 54);
+  }
+  #set-alarm-button{
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid rgb(56, 54, 54);
+  }
+  .action-buttons button{
+    border-radius: 5px;
+    border: 1px solid rgb(56, 54, 54);
+    padding: 10px;
+  }
