@@ -23,7 +23,7 @@
     }
     .time-container {
       width: 40%;
-      height: 30vh;
+      height: 40vh;
       box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
@@ -55,12 +55,22 @@
       border-radius: 7px;
       border: 1px solid rgb(56, 54, 54);
     }
+    #set-alarm-button{
+      padding: 10px;
+      border-radius: 7px;
+      border: 1px solid rgb(56, 54, 54);
+    }
+    .action-buttons button{
+      border-radius: 5px;
+      border: 1px solid rgb(56, 54, 54);
+      padding: 10px;
+    }
   </style>
   <body>
     <div class="set-alarm-input">
       <label for="">Set alarm:</label>
       <input type="datetime-local" name="" id="datetime-local" />
-      <button id="set-alarm-button">Set Alarm</button>
+      <button id="set-alarm-button">Set</button>
     </div>
     <div class="time-container">
       <select id="time-zone">
@@ -72,7 +82,10 @@
       </select>
       <div class="inner-timer-container">
         <div id="display-clock"></div>
-        <button id="toggle-button">Toggle 12/24 Hour</button>
+        <div class="action-buttons">
+          <button id="toggle-button">Toggle 12/24 Hour</button>
+          <button id="toggle-color">Change Color</button>
+      </div>
       </div>
     </div>
   </body>
