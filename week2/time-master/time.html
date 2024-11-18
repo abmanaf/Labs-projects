@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="time.css">
+    <title>Time Master</title>
+  </head>
+  <body>
+    <div class="set-alarm-input">
+      <label for="">Set alarm:</label>
+      <input type="datetime-local" name="" id="datetime-local" />
+      <button id="set-alarm-button">Set</button>
+    </div>
+    <div class="time-container">
+      <select id="time-zone">
+        <option value="local">Local Time</option>
+        <option value="UTC">UTC</option>
+        <option value="America/New_York">New York (EST)</option>
+        <option value="Europe/London">London (GMT)</option>
+        <option value="Asia/Tokyo">Tokyo (JST)</option>
+      </select>
+      <div class="inner-timer-container">
+        <div id="display-clock"></div>
+        <div class="action-buttons">
+          <button id="toggle-button">Toggle 12/24 Hour</button>
+          <button id="toggle-color">Change Color</button>
+      </div>
+      </div>
+    </div>
+  </body>
+  <script src="time.js"></script>
+</html>
