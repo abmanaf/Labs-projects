@@ -208,7 +208,8 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]:hover {
     border-color: var(--light-green);
 }
-.checkbox-container span{
+
+.checkbox-container label{
     font-size: 20px;
 }
 .password-strength{
@@ -315,6 +316,9 @@ input[type="checkbox"]:hover {
     }
     .checkbox-container span{
         font-size: 17px;
+    }
+    .checkbox-container label{
+        font-size: 15px;
     }
 }
 @media (min-width: 501px) and (max-width: 767px){
