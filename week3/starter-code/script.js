@@ -1,3 +1,37 @@
+const generatePassword = () => {
+    const charLength = parseInt(document.getElementById('char-length').value);
+    const includeUppercase = document.getElementById('upper-case').checked;
+    const includeLowercase = document.getElementById('lower-case').checked;
+    const includeNumbers = document.getElementById('numbers').checked;
+    const includeSymbols = document.getElementById('symbols').checked;
+
+    const uppercaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
+    const numberCharacters = '0123456789';
+    const symbolCharacters = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+
+    let charSet = '';
+    let generatedPassword = '';
+
+    if (includeUppercase) charSet += uppercaseCharacters;
+    if (includeLowercase) charSet += lowercaseCharacters;
+    if (includeNumbers) charSet += numberCharacters;
+    if (includeSymbols) charSet += symbolCharacters;
+
+    if (charSet.length === 0 || charLength === 0) {
+        alert(`Please select at least one character type and set a valid character length.`);
+        return;
+    }
+
+    for (let i = 0; i < charLength; i++) {
+        const randomIndex = Math.floor(Math.random() * charSet.length);
+        generatedPassword += charSet[randomIndex];
+    }
+
+    document.getElementById('generated-password').textContent = generatedPassword;
+    evaluatePasswordStrength(generatedPassword);
+}
+
 const charLengthValue = document.getElementById('char-length-value');
 const charLengthSlider = document.getElementById('char-length');
 
@@ -10,51 +44,10 @@ charLengthSlider.addEventListener('input', () => {
 
 const generatePasswordButton = document.getElementById('generate-password-btn');
 generatePasswordButton.addEventListener('click', generatePassword);
-const copyImage = document.getElementById('img-copy')
-copyImage.addEventListener('click', copyToClipboard);
 
-function generatePassword() {
-    const charLength = parseInt(document.getElementById('char-length').value);
-    const includeUppercase = document.getElementById('upper-case').checked;
-    const includeLowercase = document.getElementById('lower-case').checked;
-    const includeNumbers = document.getElementById('numbers').checked;
-    const includeSymbols = document.getElementById('symbols').checked;
 
-    const uppercaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowercaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
-    const numberCharacters = '0123456789';
-    const symbolCharacters = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
-    
-    let charSet = '';
-    let generatedPassword = '';
 
-    if (includeUppercase){
-        charSet += uppercaseCharacters;
-    } 
-    if (includeLowercase){
-        charSet += lowercaseCharacters;
-    } 
-    if (includeNumbers){
-        charSet += numberCharacters;
-    } 
-    if (includeSymbols){
-        charSet += symbolCharacters;
-    } 
-    if (charSet.length === 0 || charLength === 0) {
-        alert('Please select at least one character type and set a valid character length.');
-        return;
-    }
-
-    for (let i = 0; i < charLength; i++) {
-        const randomIndex = Math.floor(Math.random() * charSet.length);
-        generatedPassword += charSet[randomIndex];
-    }
-    const generatedPasswordValues = document.getElementById('generated-password')
-    generatedPasswordValues.textContent = generatedPassword;
-    evaluatePasswordStrength(generatedPassword);
-}
-
-function evaluatePasswordStrength(password) {
+const evaluatePasswordStrength = password => {
     const strengthText = document.getElementById('strength-level-text');
     const tooWeak = document.getElementById('too-weak');
     const weak = document.getElementById('weak');
@@ -69,21 +62,11 @@ function evaluatePasswordStrength(password) {
 
     let strength = 0;
 
-    if (password.length >= 8){
-        strength++;
-    } 
-    if (/[A-Z]/.test(password)){
-        strength++;
-    } 
-    if (/[a-z]/.test(password)){
-        strength++;
-    } 
-    if (/[0-9]/.test(password)){
-        strength++;
-    } 
-    if (/[^A-Za-z0-9]/.test(password)){
-        strength++;
-    } 
+    if (password.length >= 8) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
 
     if (strength === 1) {
         strengthText.textContent = 'Too Weak';
@@ -107,13 +90,13 @@ function evaluatePasswordStrength(password) {
 }
 
 window.addEventListener('load', () => {
-    document.getElementById('tooWeak').className.remove('too-weak');
+    document.getElementById('too-weak').classList.remove('too-weak');
     document.getElementById('weak').classList.remove('weak');
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('strong').classList.remove('strong');
 });
 
-function copyToClipboard() {
+const copyToClipboard = () => {
     const generatedPassword = document.getElementById('generated-password').textContent;
     if (generatedPassword) {
         navigator.clipboard.writeText(generatedPassword).then(() => {
@@ -121,9 +104,11 @@ function copyToClipboard() {
             copiedText.style.display = 'block';
             setTimeout(() => {
                 copiedText.style.display = 'none';
-            }, 2000); 
+            }, 2000);
         }).catch(err => {
             console.error('Failed to copy: ', err);
         });
     }
 }
+const copyImage = document.getElementById('img-copy');
+copyImage.addEventListener('click', copyToClipboard);
