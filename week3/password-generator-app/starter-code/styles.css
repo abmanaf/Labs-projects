@@ -111,14 +111,12 @@ h4{
     background: transparent;
     height: 8px;
 }
-
 #char-length::-ms-track {
     background: transparent;
     height: 8px;
     border-color: transparent;
     color: transparent;
 }
-
 #char-length::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -133,7 +131,6 @@ h4{
     transform: translateY(-50%);
     transition: background-color .2s, border-color .2s;
 }
-
 #char-length::-moz-range-thumb {
     width: 20px;
     height: 20px;
@@ -146,7 +143,6 @@ h4{
     transform: translateY(-50%);
     transition: background-color .2s, border-color .2s;
 }
-
 #char-length::-ms-thumb {
     width: 20px;
     height: 20px;
@@ -159,7 +155,6 @@ h4{
     transform: translateY(-50%);
     transition: background-color .2s, border-color .2s;
 }
-
 #char-length:hover::-webkit-slider-thumb,
 #char-length:active::-webkit-slider-thumb {
     background-color: var(--black);
@@ -208,7 +203,6 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]:hover {
     border-color: var(--light-green);
 }
-
 .checkbox-container label{
     font-size: 20px;
 }
@@ -225,7 +219,6 @@ input[type="checkbox"]:hover {
     color: var(--gray);
     font-weight: bold;
 }
-
 .password-strength .strength-level-container{
     display: flex;
     justify-content: center;
@@ -262,7 +255,6 @@ input[type="checkbox"]:hover {
     background-color: var(--medium-yellow);
     border-color: var(--medium-yellow);
 }
-
 .strong {
     background-color: var(--light-green);
     border-color: var(--light-green);

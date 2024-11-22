@@ -22,7 +22,6 @@ const generatePassword = () => {
         alert(`Please select at least one character type and set a valid character length.`);
         return;
     }
-
     for (let i = 0; i < charLength; i++) {
         const randomIndex = Math.floor(Math.random() * charSet.length);
         generatedPassword += charSet[randomIndex];
@@ -34,18 +33,14 @@ const generatePassword = () => {
 
 const charLengthValue = document.getElementById('char-length-value');
 const charLengthSlider = document.getElementById('char-length');
-
 charLengthSlider.addEventListener('input', () => {
     charLengthValue.textContent = charLengthSlider.value;
     const value = (charLengthSlider.value - charLengthSlider.min) / (charLengthSlider.max - charLengthSlider.min) * 100;
-
     charLengthSlider.style.background = `linear-gradient(to right, var(--light-green) ${value}%, var(--black) ${value}%)`;
 });
 
 const generatePasswordButton = document.getElementById('generate-password-btn');
 generatePasswordButton.addEventListener('click', generatePassword);
-
-
 
 const evaluatePasswordStrength = password => {
     const strengthText = document.getElementById('strength-level-text');
@@ -53,12 +48,6 @@ const evaluatePasswordStrength = password => {
     const weak = document.getElementById('weak');
     const medium = document.getElementById('medium');
     const strong = document.getElementById('strong');
-
-    // Reset all strength levels
-    // tooWeak.classList.remove('too-weak');
-    // weak.classList.remove('weak');
-    // medium.classList.remove('medium');
-    // strong.classList.remove('strong');
 
     let strength = 0;
 
