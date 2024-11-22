@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+<body>
+  <div class="main-container">
+    <h4>Password Generator</h4>
+    <div class="password-output">
+      <div class="generated-password" id="generated-password">
+        <span class="generated-password-placeholder">Pa$$w0rD!</span>
+      </div>
+      <div id="copy-password">
+        <span class="text-copied" id="copied-text">COPIED</span>
+        <img id="img-copy" class="copy-icon" src="assets/images/icon-copy.svg" alt="icon-copy">
+      </div>
+    </div>
+    <div class="password-details-container">
+    <div class="password-characters">
+      <p>Character Length</p>
+      <span id="char-length-value">0</span>
+    </div>
+    <input type="range" class="progress-bar" id="char-length" min="0" max="20" value="0">
+    <div class="checkbox-container">
+      <div class="checkbox">
+        <input type="checkbox" name="" id="upper-case"><label>Include Uppercase Letters</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="" id="lower-case"><label>Include Lowercase Letters</label>
+      </div> 
+      <div class="checkbox">
+        <input type="checkbox" name="" id="numbers"><label>Include Numbers</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="" id="symbols"><label>Include Symbols</label>
+      </div>
+    </div>
+    <div class="password-strength">
+      <p>Strength</p>
+      <div class="specific-strength-level">
+        <div class="strength-level-container">
+          <span id="strength-level-text"></span>
+          <!---->
+          <div class="strength-levels too-wak" id="too-weak"></div>
+          <div class="strength-levels " id="weak"></div>
+          <div class="strength-levels " id="medium"></div>
+          <div class="strength-levels " id="strong"></div>
+        </div>
+      </div>
+    </div>
+    <div class="generate-password">
+      <button class="btn" id="generate-password-btn">
+        Generate 
+        <svg width="12" class="arrow-right" height="12" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/>
+        </svg>
+      </button>     
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
