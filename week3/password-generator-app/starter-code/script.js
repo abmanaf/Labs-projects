@@ -30,10 +30,9 @@ const generatePassword = () => {
     document.getElementById('generated-password').textContent = generatedPassword;
     evaluatePasswordStrength(generatedPassword);
 }
-
-const charLengthValue = document.getElementById('char-length-value');
-const charLengthSlider = document.getElementById('char-length');
-charLengthSlider.addEventListener('input', () => {
+    const charLengthValue = document.getElementById('char-length-value');
+    const charLengthSlider = document.getElementById('char-length');
+    charLengthSlider.addEventListener('input', () => {
     charLengthValue.textContent = charLengthSlider.value;
     const value = (charLengthSlider.value - charLengthSlider.min) / (charLengthSlider.max - charLengthSlider.min) * 100;
     charLengthSlider.style.background = `linear-gradient(to right, var(--light-green) ${value}%, var(--black) ${value}%)`;
@@ -49,33 +48,37 @@ const evaluatePasswordStrength = password => {
     const medium = document.getElementById('medium');
     const strong = document.getElementById('strong');
 
-    let strength = 0;
+    let passwordStrength = 0;
 
-    if (password.length >= 8) strength++;
-    if (/[A-Z]/.test(password)) strength++;
-    if (/[a-z]/.test(password)) strength++;
-    if (/[0-9]/.test(password)) strength++;
-    if (/[^A-Za-z0-9]/.test(password)) strength++;
+    if (password.length >= 8) passwordStrength++;
+    if (/[A-Z]/.test(password)) passwordStrength++;
+    if (/[a-z]/.test(password)) passwordStrength++;
+    if (/[0-9]/.test(password)) passwordStrength++;
+    if (/[^A-Za-z0-9]/.test(password)) passwordStrength++;
 
-    if (strength === 1) {
-        strengthText.textContent = 'Too Weak';
-        tooWeak.classList.add('too-weak');
-    } else if (strength === 2) {
-        strengthText.textContent = 'Weak';
-        tooWeak.classList.add('weak');
-        weak.classList.add('weak');
-    } else if (strength === 3) {
-        strengthText.textContent = 'Medium';
-        tooWeak.classList.add('medium');
-        weak.classList.add('medium');
-        medium.classList.add('medium');
-    } else if (strength >= 4) {
-        strengthText.textContent = 'Strong';
-        tooWeak.classList.add('strong');
-        weak.classList.add('strong');
-        medium.classList.add('strong');
-        strong.classList.add('strong');
-    }
+    const strengthClasses = {
+    1: ['too-weak'],
+    2: ['too-weak', 'weak'],
+    3: ['too-weak', 'weak', 'medium'],
+    4: ['too-weak', 'weak', 'medium', 'strong']
+};
+
+if (passwordStrength < 1 || passwordStrength > 4 || isNaN(passwordStrength)) {
+    strengthText.textContent = 'Invalid Strength';
+} else {
+    const classesToAdd = strengthClasses[passwordStrength] || [];
+    strengthText.textContent = passwordStrength === 1 ? 'Too Weak' :
+                              passwordStrength === 2 ? 'Weak' :
+                              passwordStrength === 3 ? 'Medium' : 'Strong';
+    
+    [tooWeak, weak, medium, strong].forEach((element, index) => {
+        const className = classesToAdd[index];
+        if (className && !element.classList.contains(className)) {
+            element.classList.add(className);
+        }
+    });
+}
+
 }
 
 window.addEventListener('load', () => {
