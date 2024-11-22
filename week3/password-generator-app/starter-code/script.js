@@ -63,7 +63,7 @@ const evaluatePasswordStrength = password => {
     4: ['too-weak', 'weak', 'medium', 'strong']
 };
 
-if (passwordStrength < 1 || passwordStrength > 4 || isNaN(passwordStrength)) {
+if (passwordStrength < 1 || isNaN(passwordStrength)) {
     strengthText.textContent = 'Invalid Strength';
 } else {
     const classesToAdd = strengthClasses[passwordStrength] || [];
