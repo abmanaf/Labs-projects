@@ -14,7 +14,6 @@
     --color-text: #FFFFFF;
     --color-background: #050505;
 }
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -73,7 +72,6 @@ body {
     font-weight: 600;
 }
 
-/* Theme toggle styles */
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -121,7 +119,6 @@ body {
     transform: translateX(20px);
 }
 
-/* Search styles */
 .search-container {
     position: relative;
     margin-bottom: 25px;
@@ -137,15 +134,12 @@ body {
     color: var(--color-text);
     font-weight: bold;
 }
-
 [data-theme="dark"] .search-container input {
     background: #1F1F1F;
 }
-
 .search-container input:focus {
     outline: 2px solid var(--color-primary);
 }
-
 .search-container button {
     position: absolute;
     right: 24px;
@@ -155,18 +149,14 @@ body {
     border: none;
     cursor: pointer;
 }
-
-/* Results styles */
 .result-container {
     transform: translateY(20px);
     transition: opacity 0.3s, transform 0.3s;
 }
-
 .result-container.visible {
     opacity: 1;
     transform: translateY(0);
 }
-
 .word-header {
     display: flex;
     justify-content: space-between;
@@ -198,11 +188,9 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
 }
-
 .play-button:hover {
     transform: scale(1.1);
 }
-
 .part-of-speech {
     display: flex;
     align-items: center;
@@ -211,42 +199,30 @@ body {
     font-weight: 600;
     font-style: italic;
 }
-
 .part-of-speech::after {
     content: '';
     flex-grow: 1;
     height: 1px;
     background: #E9E9E9;
 }
-
 [data-theme="dark"] .part-of-speech::after {
     background: #3A3A3A;
 }
-
 .meanings-title {
     color: var(--color-grey);
     margin-bottom: 15px;
     font-weight: normal;
 }
-
 .definition-list {
     margin-bottom: 25px;
 }
-
 .definition-item {
     margin-bottom: 13px;
     line-height: 1.5;
 }
-
 .definition-item::marker{
     color: var(--color-primary);
 }
-/*
-.synonyms-title, .definition-item .example{
-    color: var(--color-grey)
-}
-*/
-
 .source-section {
     margin-top: 40px;
     padding-top: 20px;
@@ -257,13 +233,11 @@ body {
     align-items: center;
     margin-bottom: 5px;
 }
-
 .source-title {
     color: var(--color-grey);
     font-size: 14px;
     margin-bottom: 8px;
 }
-
 .source-link {
     color: var(--color-text);
     text-decoration: none;
@@ -282,8 +256,6 @@ body {
 .hidden {
     display: none;
 }
-
-/* Fonts */
 [data-font="serif"] {
     font-family: var(--font-serif);
 }
@@ -311,7 +283,6 @@ body {
         font-size: 18px;
     }
 }
-
 @media (min-width: 481px) and (max-width: 768px) {
     body{
         margin: 0 3em;

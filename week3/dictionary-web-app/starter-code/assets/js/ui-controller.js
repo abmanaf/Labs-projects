@@ -126,14 +126,11 @@ export class UIController {
         console.log(sources);
 
     }
-    
-
     showError(errormessage) {
         this.errorMessage.textContent = errormessage;
         this.errorMessage.classList.remove('hidden');
         this.resultContainer.classList.add('hidden');
     }
-
     pronunceWord() {
         this.audio.src && this.audio.play();
     }
