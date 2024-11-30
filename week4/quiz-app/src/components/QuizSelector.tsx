@@ -32,8 +32,8 @@ console.log(quizzes)
             <h1 style={{visibility: 'hidden'}}>header</h1>
         <ThemeToggle />
         </div>
-    <div className={`quiz-selector ${isDarkMode ? 'dark' : 'light'}`} style={{marginTop: '4em'}}>
-        <div style={{width: '50%', lineHeight: '40px'}}>
+        <div className={`quiz-selector ${isDarkMode ? 'dark' : 'light'}`} style={{marginTop: '4em'}}>
+         <div className='welcome-quiz'>
             <p style={{fontSize: '2.1em'}}>Welcome to the</p>
             <span style={{fontWeight: 'bolder', fontSize: '2.1em'}}>Frontend Quiz!</span>
             <p>Pick a subject to get started.</p>
