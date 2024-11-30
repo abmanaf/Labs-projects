@@ -2,59 +2,60 @@ import React from 'react';
 import { useTheme } from '../utils/theme';
 import Header from './Header';
 import ThemeToggle from './ThemeToggle';
+import { QuizData } from '../types/quiz.types';
 
-interface QuizResultProps{
-  subject: string;
+interface QuizResultProps {
+  quizData: QuizData; 
   score: number;
   totalQuestions: number;
   onRestart: () => void;
 }
 
-const QuizResult: React.FC<QuizResultProps> = ({ 
-  subject, 
-  score, 
-  totalQuestions, 
+const QuizResult: React.FC<QuizResultProps> = ({
+  quizData, //  quizData Destructure
+  score,
+  totalQuestions,
   onRestart,
 }) => {
   const { isDarkMode } = useTheme();
-  //const percentage = Math.round((score / totalQuestions) * 100);
 
   return (
     <div>
-        {/* 
-         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <Header quizData={quizData} onRestart={function (): void {
-                      throw new Error('Function not implemented.');
-                      } } />
-        <ThemeToggle />
-            </div>
-            */}
-    <div className={`quiz-result ${isDarkMode ? 'dark' : 'light'}`}>
-      <h1>Quiz Completed!</h1>
-      <div className='results-details'>
-      <div className="result-summary">
-        <h3>{subject} Quiz</h3>
-        <div className="score-display">
-          <p>Your Score</p>
-          <span className="final-score">{score}</span>
-          <p>out of {totalQuestions}</p>
-        </div>
-        {/* 
-        <p className="percentage">
-          {percentage}% Correct
-        </p>
-        */}
-      </div>
-      <button 
-        className="restart-btn"
-        onClick={onRestart}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          marginTop: '3em',
+        }}
       >
-        Play Again
-      </button>
+        <Header quizData={quizData} onRestart={onRestart} />
+        <ThemeToggle />
+      </div>
+
+      <div className={`quiz-result ${isDarkMode ? 'dark' : 'light'}`}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <p style={{ fontSize: '2.5em' }}>Quiz Completed!</p>
+          <h2 style={{ fontWeight: 'bolder', fontSize: '2em' }}>You Scored...</h2>
+        </div>
+        <div className="results-details">
+          <div className="result-summary">
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap:'1em'}}>
+            <img src={quizData.icon} alt="quizData.title" />
+            <h3>{quizData.title}</h3>
+            </div>
+            <div className="score-display">
+              <span style={{fontSize: '6em'}} className="final-score">{score}</span>
+              <p>out of {totalQuestions}</p>
+            </div>
+          </div>
+          <button className="restart-btn" onClick={onRestart}>
+            Play Again
+          </button>
+        </div>
       </div>
     </div>
-    </div>
-
   );
 };
 
