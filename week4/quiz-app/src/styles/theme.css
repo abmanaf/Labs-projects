@@ -17,8 +17,8 @@ body {
       color 0.3s ease;
   }
   body.dark-theme {
-    --primary-background: #121530;
-    --secondary-background: #1f2341;
+    --primary-background: #3B4D66;
+    --secondary-background: #313E51;
     --text-color: #ffffff;
     --accent-color: #a729f5;
     --error-color: #ff4444;
