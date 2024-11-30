@@ -16,6 +16,8 @@ const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isAnswerChecked, setIsAnswerChecked] = useState(false);
+  const [showError, setShowError] = useState(false);
+
   const { isDarkMode } = useTheme();
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
@@ -53,15 +55,14 @@ const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
 
   if (showResult) {
     return (
-      <QuizResult 
-        subject={quizData.quizzes}
-        score={score} 
+      <QuizResult
+        quizData={quizData} 
+        score={score}
         totalQuestions={quizData.questions.length}
         onRestart={onRestart}
       />
     );
   }
-
   return (
     <div>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
@@ -71,12 +72,7 @@ const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
         <ThemeToggle />
             </div>
     <div className={`quiz-container ${isDarkMode ? 'dark' : 'light'}`} style={{marginTop: '3em'}}>
-      <div className="quiz-header" style={{width: '50%'}}>
-        <div style={{display: 'flex', flexDirection: 'column',border: '1px solid red', justifyContent: 'space-between'}}>
-            {/*
-            <img src={quizData.icon} alt={`${quizData.title} icon`} />
-            <span>{quizData.title}</span>
-             */}
+      <div className="quiz-header">
             <div>
                 <em>Question {currentQuestionIndex + 1} of {quizData.questions.length}</em>
                 <div className="question-section">
@@ -88,70 +84,78 @@ const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
           className="progress-bar" 
           style={{ 
             width: `${progressPercentage}%`,
-            backgroundColor: isDarkMode ? '#a729f5' : '#6741d9'
+            backgroundColor: isDarkMode ? '#a729f5' : '#a729f5'
           }}
         ></div>
-      </div>
-        </div>
-       
+        </div>   
       </div>
 
-        <div style={{width:'50%'}}>
+        <div className='options'>
         <div className="answer-options">
           {currentQuestion.options.map((option, index) => (
-            <button
-              key={index}
-              className={`option-btn ${
-                isAnswerChecked 
-                  ? option === currentQuestion.answer 
-                    ? 'correct' 
-                    : option === selectedAnswer 
-                      ? 'incorrect' 
-                      : ''
-                  : selectedAnswer === option 
-                    ? 'selected' 
-                    : ''
-              }`}
-              onClick={() => handleAnswerSelect(option)}
-              disabled={isAnswerChecked}
-            >
-              <span className="option-letter">{String.fromCharCode(65 + index)}</span>
-              {option}
-              {isAnswerChecked && (
-                <span className="result-icon">
-                  {option === currentQuestion.answer 
-                    ? <img src='src/assets/images/correct.svg' alt='correct'/> 
-                    : option === selectedAnswer 
-                      ? <img src="src/assets/images/wrong.svg" alt="" /> 
-                      : ''}
-                </span>
-              )}
-            </button>
+          <button
+          key={index}
+          className={`option-btn ${
+            isAnswerChecked 
+              ? option === currentQuestion.answer 
+                ? 'correct' 
+                : option === selectedAnswer 
+                  ? 'incorrect' 
+                  : ''
+              : selectedAnswer === option 
+                ? 'selected' 
+                : ''
+          }`}
+          onClick={() => handleAnswerSelect(option)}
+          disabled={isAnswerChecked}
+        >
+          <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+          {option}
+          {isAnswerChecked && (
+            <span className="result-icon">
+              {option === currentQuestion.answer ? (
+                <img src="src/assets/images/correct.svg" alt="correct" />
+              ) : option === selectedAnswer ? (
+                <img src="src/assets/images/wrong.svg" alt="incorrect" />
+              ) : null}
+            </span>
+          )}
+        </button>
+        
+        
           ))}
         </div>
 
         {!isAnswerChecked ? (
-          <button 
-            className="submit-btn"
-            onClick={handleSubmit}
-            //disabled={!selectedAnswer}
-          >
-            Submit Answer
-          </button>
-        ) : (
-          <button 
-            className="next-btn"
-            onClick={handleNextQuestion}
-          >
-            Next Question
-          </button>
-        )}
-
-        {!selectedAnswer && isAnswerChecked && (
-          <div className="error-message">
-            Please select an answer before submitting
-          </div>
-        )}
+  <>
+    <button 
+      className="submit-btn"
+      onClick={() => {
+        if (!selectedAnswer) {
+          setShowError(true); 
+        } else {
+          handleSubmit();
+          setShowError(false); 
+        }
+      }}
+    >
+      Submit Answer
+    </button>
+    {showError && (
+      <div className="error-message">
+        <img src="src/assets/images/invalid.svg" alt="invalid" />
+        Please select an answer before submitting
+      </div>
+    )}
+  </>
+) : (
+  <button 
+    className="next-btn"
+    onClick={handleNextQuestion}
+  >
+    {currentQuestionIndex === totalQuestions - 1 ? 'View Score' : 'Next Question'}
+     </button>
+    )}
       </div>
     </div>
     </div>
