@@ -5,7 +5,7 @@ import { useTheme } from '../utils/theme';
 import data from '../data/data.json'
 import ThemeToggle from './ThemeToggle';
 
-const QuizSelector: React.FC = () => {
+const QuizSelector = () => {
   const [quizzes, setQuizzes] = useState<QuizData[]>([]);
   const [selectedQuiz, setSelectedQuiz] = useState<QuizData | null>(null);
   const { isDarkMode } = useTheme();

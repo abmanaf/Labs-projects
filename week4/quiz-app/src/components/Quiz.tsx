@@ -10,7 +10,7 @@ export interface QuizProps {
   onRestart: () => void;
 }
 
-const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
+const Quiz = ({ quizData, onRestart }: QuizProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [score, setScore] = useState(0);

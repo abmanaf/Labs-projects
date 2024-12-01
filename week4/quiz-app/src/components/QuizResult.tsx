@@ -11,12 +11,12 @@ interface QuizResultProps {
   onRestart: () => void;
 }
 
-const QuizResult: React.FC<QuizResultProps> = ({
+const QuizResult = ({
   quizData, //  quizData Destructure
   score,
   totalQuestions,
   onRestart,
-}) => {
+}: QuizResultProps) => {
   const { isDarkMode } = useTheme();
 
   return (
@@ -42,7 +42,7 @@ const QuizResult: React.FC<QuizResultProps> = ({
         <div className="results-details">
           <div className="result-summary">
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap:'1em'}}>
-            <img src={quizData.icon} alt="quizData.title" />
+            <img style={{width: '40px', height: '40px'}} src={quizData.icon} alt="quizData.title" />
             <h3>{quizData.title}</h3>
             </div>
             <div className="score-display">

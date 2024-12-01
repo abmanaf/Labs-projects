@@ -1,7 +1,7 @@
 import React from 'react'
 import { QuizProps } from './Quiz';
 
-const Header: React.FC<QuizProps> = ({ quizData, onRestart }) => {
+const Header = ({ quizData, onRestart }: QuizProps) => {
     if (!quizData) {
       return null; 
     }
