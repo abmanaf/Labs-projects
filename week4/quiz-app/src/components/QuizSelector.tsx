@@ -36,7 +36,7 @@ console.log(quizzes)
          <div className='welcome-quiz'>
             <p style={{fontSize: '2.1em'}}>Welcome to the</p>
             <span style={{fontWeight: 'bolder', fontSize: '2.1em'}}>Frontend Quiz!</span>
-            <p>Pick a subject to get started.</p>
+            <p style={{marginTop: '1em', opacity: '0.7'}}><em>Pick a subject to get started.</em></p>
       </div>
       <div className="quiz-grid">
         {quizzes.length > 0 ? (
