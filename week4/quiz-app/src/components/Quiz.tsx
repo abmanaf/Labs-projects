@@ -116,7 +116,7 @@ const Quiz: React.FC<QuizProps> = ({ quizData, onRestart }) => {
               {option === currentQuestion.answer ? (
                 <img src="src/assets/images/correct.svg" alt="correct" />
               ) : option === selectedAnswer ? (
-                <img src="src/assets/images/wrong.svg" alt="incorrect" />
+                <img style={{width: '26px', height: '26px'}} src="src/assets/images/wrong.svg" alt="incorrect" />
               ) : null}
             </span>
           )}
