@@ -1,7 +1,6 @@
-import React from 'react'
 import { QuizProps } from './Quiz';
 
-const Header = ({ quizData, onRestart }: QuizProps) => {
+const Header = ({ quizData }: QuizProps) => {
     if (!quizData) {
       return null; 
     }

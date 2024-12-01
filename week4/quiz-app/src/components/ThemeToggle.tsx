@@ -1,12 +1,16 @@
-import React from 'react';
 import { useTheme } from '../utils/theme';
+import darkmode from '/assets/images/darkmode-moon.svg';
+import moon from '/assets/images/moon.svg';
+import darkModeSun from '/assets/images/darkmode-sun.svg';
+import sun from '/assets/images/sunny.svg'
+
 
 const ThemeToggle = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <div style={{ display: 'flex', gap: '0.5em' }}>
-      {!isDarkMode? <img  src="src/assets/images/sunny.svg" alt="sunny" />: <img src="src/assets/images/darkmode-sun.svg" alt="darkmode-sun"/>}
+      {!isDarkMode? <img  src={sun} alt="sunny" />: <img src={darkModeSun} alt="darkmode-sun"/>}
       <svg
         className="theme-toggle"
         style={{ cursor: 'pointer' }}
@@ -30,7 +34,7 @@ const ThemeToggle = () => {
           fill="white"
         />
       </svg>
-      {!isDarkMode? <img  src="src/assets/images/moon.svg" alt="moon" />: <img src="src/assets/images/darkmode-moon.svg" alt="darkmode-moon"/>}
+      {!isDarkMode? <img  src={moon} alt="moon" />: <img src={darkmode} alt="darkmode-moon"/>}
 
     </div>
   );

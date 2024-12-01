@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from '../utils/theme';
 import Header from './Header';
 import ThemeToggle from './ThemeToggle';

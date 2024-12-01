@@ -12,10 +12,13 @@ export interface QuizQuestion {
 }
 
 export interface QuizData {
-  quizzes: string;
   title: string;
   icon: string;
-  questions: QuizQuestion[];
+  questions: {
+      question: string;
+      options: string[];
+      answer: string;
+    }[];
 }
 
 export interface ThemeContextType {

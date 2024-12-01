@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import { QuizData, QuizQuestion } from '../types/quiz.types';
+import { useState } from 'react';
+import { QuizData } from '../types/quiz.types';
 import QuizResult from './QuizResult';
 import { useTheme } from '../utils/theme';
 import Header from './Header';
 import ThemeToggle from './ThemeToggle';
+import correct from '/assets/images/correct.svg';
+import incorrect from '/assets/images/wrong.svg';
+import invalid from '/assets/images/invalid.svg';
+
 
 export interface QuizProps {
   quizData: QuizData;
@@ -33,7 +37,7 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
 
   const handleSubmit = () => {
     if (!selectedAnswer) {
-      return <img src="src/assets/images/invalid.svg" alt="invalid" />;
+      return <img src="./assets/images/invalid.svg" alt="invalid" />;
     }
 
     setIsAnswerChecked(true);
@@ -114,9 +118,9 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
           {isAnswerChecked && (
             <span className="result-icon">
               {option === currentQuestion.answer ? (
-                <img src="src/assets/images/correct.svg" alt="correct" />
+                <img src={correct} alt="correct" />
               ) : option === selectedAnswer ? (
-                <img style={{width: '26px', height: '26px'}} src="src/assets/images/wrong.svg" alt="incorrect" />
+                <img style={{width: '26px', height: '26px'}} src={incorrect} alt="incorrect" />
               ) : null}
             </span>
           )}
@@ -143,7 +147,7 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
     </button>
     {showError && (
       <div className="error-message">
-        <img src="src/assets/images/invalid.svg" alt="invalid" />
+        <img src={invalid} alt="invalid" />
         Please select an answer before submitting
       </div>
     )}
