@@ -34,19 +34,18 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
       setSelectedAnswer(answer);
     }
   };
-
   const handleSubmit = () => {
     if (!selectedAnswer) {
-      return <img src="./assets/images/invalid.svg" alt="invalid" />;
+      setShowError(true); 
+    } else {
+      setShowError(false); 
     }
-
     setIsAnswerChecked(true);
 
     if (selectedAnswer === currentQuestion.answer) {
       setScore(prev => prev + 1);
     }
-  };
-
+}
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
@@ -67,16 +66,25 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
       />
     );
   }
+  const getButtonClass = (option: string) => {
+    if (isAnswerChecked) {
+      if (option === currentQuestion.answer) return 'correct';
+      if (option === selectedAnswer) return 'incorrect';
+      return '';
+    }
+    return selectedAnswer === option ? 'selected' : '';
+  };
+  const displayHeader = (quizData: QuizData, onRestart: () => void) => {
+    return <Header quizData={quizData} onRestart={onRestart} />;
+  };
   return (
     <div>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <Header quizData={quizData} onRestart={function (): void {
-                      throw new Error('Function not implemented.');
-                      } } />
-        <ThemeToggle />
-            </div>
-    <div className={`quiz-container ${isDarkMode ? 'dark' : 'light'}`} style={{marginTop: '3em'}}>
-      <div className="quiz-header">
+        <div className='quiz-header'>
+          {displayHeader(quizData, onRestart)}
+          <ThemeToggle />
+        </div>
+    <div className={`quiz-container ${isDarkMode ? 'dark' : 'light'}`}>
+      <div className="question-progress-container">
             <div>
                 <em>Question {currentQuestionIndex + 1} of {quizData.questions.length}</em>
                 <div className="question-section">
@@ -93,55 +101,34 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
         ></div>
         </div>   
       </div>
-
         <div className='options'>
         <div className="answer-options">
-          {currentQuestion.options.map((option, index) => (
-          <button
-          key={index}
-          className={`option-btn ${
-            isAnswerChecked 
-              ? option === currentQuestion.answer 
-                ? 'correct' 
-                : option === selectedAnswer 
-                  ? 'incorrect' 
-                  : ''
-              : selectedAnswer === option 
-                ? 'selected' 
-                : ''
-          }`}
-          onClick={() => handleAnswerSelect(option)}
-          disabled={isAnswerChecked}
-        >
-          <span className="option-letter">{String.fromCharCode(65 + index)}</span>
-          {option}
-          {isAnswerChecked && (
-            <span className="result-icon">
-              {option === currentQuestion.answer ? (
-                <img src={correct} alt="correct" />
-              ) : option === selectedAnswer ? (
-                <img style={{width: '26px', height: '26px'}} src={incorrect} alt="incorrect" />
-              ) : null}
-            </span>
-          )}
-        </button>
-        
-        
-          ))}
-        </div>
-
+    {currentQuestion.options.map((option, index) => (
+      <button
+        key={index}
+        className={`option-btn ${getButtonClass(option)}`}
+        onClick={() => handleAnswerSelect(option)}
+        disabled={isAnswerChecked}
+      >
+        <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+        <span className="option">{option}</span>
+        {isAnswerChecked && (
+          <span className="result-icon">
+            {option === currentQuestion.answer ? (
+              <img src={correct} alt="correct" />
+            ) : option === selectedAnswer ? (
+              <img className="incorrect-img" src={incorrect} alt="incorrect" />
+            ) : null}
+          </span>
+        )}
+      </button>
+    ))}
+  </div>
         {!isAnswerChecked ? (
   <>
     <button 
       className="submit-btn"
-      onClick={() => {
-        if (!selectedAnswer) {
-          setShowError(true); 
-        } else {
-          handleSubmit();
-          setShowError(false); 
-        }
-      }}
+      onClick={handleSubmit}
     >
       Submit Answer
     </button>
