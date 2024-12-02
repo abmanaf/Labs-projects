@@ -13,7 +13,6 @@ const QuizSelector = () => {
   useEffect(() => {
     setQuizzes(data.quizzes || []);
   }, []);
-console.log(quizzes)
   const handleQuizSelect = (quiz: QuizData) => {
     setSelectedQuiz(quiz);
   };
