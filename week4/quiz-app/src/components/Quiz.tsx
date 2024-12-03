@@ -14,6 +14,10 @@ export interface QuizProps {
   onRestart: () => void;
 }
 
+const renderHeader = (quizData: QuizData, onRestart: () => void) => {
+  return <Header quizData={quizData} onRestart={onRestart} />;
+};
+
 const Quiz = ({ quizData, onRestart }: QuizProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -36,16 +40,15 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
   };
   const handleSubmit = () => {
     if (!selectedAnswer) {
-      setShowError(true); 
+      setShowError(true);
     } else {
-      setShowError(false); 
+      setShowError(false);
+      setIsAnswerChecked(true);
+      if (selectedAnswer === currentQuestion.answer) {
+        setScore(prev => prev + 1);
+      }
     }
-    setIsAnswerChecked(true);
-
-    if (selectedAnswer === currentQuestion.answer) {
-      setScore(prev => prev + 1);
-    }
-}
+  };
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
@@ -73,14 +76,11 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
       return '';
     }
     return selectedAnswer === option ? 'selected' : '';
-  };
-  const displayHeader = (quizData: QuizData, onRestart: () => void) => {
-    return <Header quizData={quizData} onRestart={onRestart} />;
-  };
+  };  
   return (
     <div>
         <div className='quiz-header'>
-          {displayHeader(quizData, onRestart)}
+          {renderHeader(quizData, onRestart)}
           <ThemeToggle />
         </div>
     <div className={`quiz-container ${isDarkMode ? 'dark' : 'light'}`}>
@@ -103,7 +103,7 @@ const Quiz = ({ quizData, onRestart }: QuizProps) => {
       </div>
         <div className='options'>
         <div className="answer-options">
-    {currentQuestion.options.map((option, index) => (
+        {currentQuestion.options.map((option, index) => (
       <button
         key={index}
         className={`option-btn ${getButtonClass(option)}`}
