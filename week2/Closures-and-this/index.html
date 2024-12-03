@@ -20,11 +20,12 @@
     <button id="mybutton" style="cursor: pointer;">Click Me</button>
 </body>
 <script>
-    const clickButton = document.querySelector('button');
-
-    clickButton.addEventListener('click', () => {
+    function handleClick(){
         console.log('My ID:', clickButton.id)
         console.log('My content:', clickButton.textContent)
-    });
+    }
+
+    const clickButton = document.querySelector('button');
+    clickButton.addEventListener('click', handleClick)
 </script>
 </html>

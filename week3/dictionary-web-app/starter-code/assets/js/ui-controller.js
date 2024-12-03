@@ -45,7 +45,7 @@ export class UIController {
         document.getElementById('pronunciation').textContent = phonetic;
 
         // Sets up audio if available
-        const audioUrl = wordData.phonetics.find(phonetic => phonetic.audio)?.audio;
+        const audioUrl = wordData.phonetics.find(p => p.audio)?.audio;
         if (audioUrl) {
             this.audio.src = audioUrl;
             this.playButton.style.display = 'block';
@@ -123,14 +123,17 @@ export class UIController {
             link.textContent = url;
             sourceLinks.appendChild(link);
         });
-        //console.log(sources);
+        console.log(sources);
 
     }
+    
+
     showError(errormessage) {
         this.errorMessage.textContent = errormessage;
         this.errorMessage.classList.remove('hidden');
         this.resultContainer.classList.add('hidden');
     }
+
     pronunceWord() {
         this.audio.src && this.audio.play();
     }

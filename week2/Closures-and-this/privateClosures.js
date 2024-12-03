@@ -1,12 +1,13 @@
 function createCounter(){
     let count = 0;
     return {
+        count,
         increment(){
-            count++
+            this.count++
             console.log(this.count)
         },
         getCount() {
-            return count;
+            return this.count;
         } 
     }
 }

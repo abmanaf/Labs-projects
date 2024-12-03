@@ -9,19 +9,11 @@ export class DictionaryAPI {
             const response = await fetch(`${this.apiEndpoint}${word}`);
             
             if (!response.ok) {
-                //throw new Error('Word not found');
-                if (response.status === 404){
-                    throw new Error(`Word "${word}" not found in dictionary`);
-                }
-                throw new Error(`API request failed with status: ${response.status}`);
+                throw new Error('Word not found');
             }
             return await response.json();
         } catch (error) {
-            if (error instanceof Error) {
-                throw new Error(`Dictionary API error: ${error.message}`);
+            throw error;
         }
-        throw new Error('An unknown error occurred while fetching the dictionary data');
-    }
-    
     }
 }

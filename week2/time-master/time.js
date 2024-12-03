@@ -17,26 +17,28 @@ const clock = {
   timeZone: "local",
 
   updateTime() {
-    const now = new Date();
+    const currentTime = new Date();
     if (this.timeZone !== "local") {
-      const localTime = new Date(now.toLocaleString("en-US", { timeZone: this.timeZone }));
+      const localTime = new Date(currentTime.toLocaleString("en-US", { timeZone: this.timeZone }));
       this.hour = localTime.getHours();
       this.minute = localTime.getMinutes();
       this.second = localTime.getSeconds();
     } else {
-      this.hour = now.getHours();
-      this.minute = now.getMinutes();
-      this.second = now.getSeconds();
+      this.hour = currentTime.getHours();
+      this.minute = currentTime.getMinutes();
+      this.second = currentTime.getSeconds();
     }
   },
-
-  getFormattedTime() {
-    if (this.is24HourFormat) {
-      return `${this.hour}:${this.minute < 10 ? "0" + this.minute : this.minute}:${this.second < 10 ? "0" + this.second : this.second}`;
-    } else {
-      return this.get12HourTime();
-    }
-  },
+ getFormattedTime(){
+  if(this.is24HourFormat){
+    let hours = this.hour;
+    let minutes = this.minute < 10 ? "0" + this.minute : this.minute;
+    let seconds = this.second < 10 ? "0" + this.second : this.second;
+    return `${hours}:${minutes}:${seconds}`
+}else {
+  return this.get12HourTime();
+}
+ },
 
   get12HourTime() {
     let ampm = this.hour >= 12 ? "PM" : "AM";
@@ -62,9 +64,9 @@ const clock = {
 
   checkAlarm() {
     if (alarmSet) {
-      const now = new Date();
+      const currentTime = new Date();
       const alarmDate = new Date(alarmTime);
-      if (now >= alarmDate && now < new Date(alarmDate.getTime() + 1000)) {
+      if (currentTime >= alarmDate && currentTime < new Date(alarmDate.getTime() + 1000)) {
         alert("Alarm time reached!");
         alarmSet = false;
       }
