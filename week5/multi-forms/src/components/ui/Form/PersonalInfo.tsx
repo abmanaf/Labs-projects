@@ -7,6 +7,11 @@ interface PersonalInfoProps {
     email: string;
     phone: string;
   };
+  errors: {
+    name?: string;
+    email?: string;
+    phone?: string;
+  };
   updateData: (field: string, value: string) => void;
 }
 
@@ -47,6 +52,5 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ data, errors, updateData })
     </div>
   );
 };
-
 
 export default PersonalInfo;
