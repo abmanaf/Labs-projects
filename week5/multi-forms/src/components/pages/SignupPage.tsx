@@ -17,7 +17,14 @@ const SignupPage: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    phone: string;
+    plan: string;
+    billingCycle: 'monthly' | 'yearly';
+    addOns: { [key: string]: boolean };
+  }>({
     name: '',
     email: '',
     phone: '',
@@ -25,7 +32,7 @@ const SignupPage: React.FC = () => {
     billingCycle: 'monthly',
     addOns: { onlineService: false, storage: false, customizableProfile: false },
   });
-
+  
   const updateData = (field: string, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: '' }));
@@ -91,9 +98,15 @@ const SignupPage: React.FC = () => {
               />
             )}
             {currentStep === 2 && (
-              <AddOns addOns={formData.addOns} updateAddOns={updateAddOns} />
+              <AddOns 
+                addOns={formData.addOns} 
+                updateAddOns={updateAddOns} 
+                onNext={nextStep} 
+                onPrevious={prevStep} 
+                canProceed={true}
+              />
             )}
-            {currentStep === 3 && <Summary formData={formData} />}
+            {currentStep === 3 && <Summary formData={formData} onChangeClick={() => setCurrentStep(1)} />}
             <StepNavigator
               onNext={nextStep}
               onPrevious={prevStep}
