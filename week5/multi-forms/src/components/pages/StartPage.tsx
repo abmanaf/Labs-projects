@@ -1,8 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-//import '../styles/welcomePage.css'
-
-
 
 const WelcomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -17,8 +14,7 @@ const WelcomePage: React.FC = () => {
         <h1 className="welcome-title">Lorem Gaming</h1>
         <p className="welcome-subtitle">
           Welcome to Lorem Gaming! Sign up now to unlock premium gaming features and take your gaming experience to the next level.
-        </p>
-        
+        </p> 
         <div className="welcom-icons">
           <div className="icon-container video-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -31,14 +27,12 @@ const WelcomePage: React.FC = () => {
             </svg>
           </div>
         </div>
-        
         <button className="get-started-btn" onClick={startSignup}>
           Get Started
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6"/>
           </svg>
         </button>
-        
         <p className="terms-text">
           By signing up, you agree to our Terms of Service and Privacy Policy
         </p>
