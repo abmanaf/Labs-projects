@@ -9,7 +9,7 @@ interface SummaryProps {
     billingCycle: 'monthly' | 'yearly';
     addOns: { [key: string]: boolean };
   };
-  onChangeClick: () => void; // New prop for handling changes
+  onChangeClick: () => void;
 }
 
 const availableAddOns = [
@@ -33,7 +33,6 @@ const Summary: React.FC<SummaryProps> = ({ formData, onChangeClick }) => {
 
   const total = planPrice + addOnsPrice;
 
-  // Display billing cycle abbreviation
   const billingCycleLabel = formData.billingCycle === 'monthly' ? 'mo' : 'yr';
 
   return (
