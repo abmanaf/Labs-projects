@@ -12,7 +12,6 @@ interface StepNavigatorProps {
 const StepNavigator: React.FC<StepNavigatorProps> = ({
   onNext,
   onPrevious,
-  canProceed,
   canGoBack,
   isFinalStep,
   onConfirm,
