@@ -38,7 +38,7 @@ const PlanSelection: React.FC<PlanSelectionProps> = ({
               }}
               className="inner-specific-plan"
             >
-              <img style={{ width: '35px', height: '35px' }} src={plan.src} alt={plan.label} />
+              <img src={plan.src} alt={plan.label} />
               <div className="label-billing-cycle">
                 <p className="label">{plan.label}</p>
                 <p className="billing-cycle">
@@ -50,7 +50,7 @@ const PlanSelection: React.FC<PlanSelectionProps> = ({
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
-      <div className="monthly-yearly" style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+      <div className="monthly-yearly">
         <span
           onClick={() => updateBillingCycle('monthly')}
           style={{
