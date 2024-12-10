@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #EFF5FF;
+    --secondary-color: #e6f7ff;
+    --text-color: #333;
+    --bg-button: #164A8A;
+    --bg-confirm-b: #6A62FF;
+    --bg-confirm: #F8F9FF;
+    --border-radius: 5px;
+    --spacing: 16px;
+    --selected: #BEE2FD;
+  }
+  
